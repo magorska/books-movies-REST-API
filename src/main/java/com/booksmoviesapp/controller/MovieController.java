@@ -1,6 +1,9 @@
 package com.booksmoviesapp.controller;
 
+import com.booksmoviesapp.domain.Category;
 import com.booksmoviesapp.domain.Movie;
+import com.booksmoviesapp.domain.Review;
+import com.booksmoviesapp.domain.dto.MovieDto;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -16,14 +19,18 @@ public class MovieController {
     }
 
     @GetMapping(path = "getMovie")
-    public void getMovie() {}
+    public MovieDto getMovie(Long movieId) {
+        return new MovieDto(1L, "title", "director", 2020, new Review(), new Category());
+    }
 
     @PostMapping(path = "createMovie")
-    public void createMovie() {}
+    public void createMovie(MovieDto movieDto) {}
 
     @PutMapping(path= "updateMovie")
-    public void updateMovie() {}
+    public MovieDto updateMovie(MovieDto movieDto) {
+        return new MovieDto(1L, "title", "director", 2020, new Review(), new Category());
+    }
 
     @DeleteMapping(path = "deleteMovie")
-    public void deleteMovie() {}
+    public void deleteMovie(Long movieId) {}
 }
