@@ -1,8 +1,7 @@
 package com.booksmoviesapp.controller;
 
 import com.booksmoviesapp.domain.Category;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,15 +10,20 @@ import java.util.List;
 @RequestMapping("/v1/categories")
 public class CategoryController {
 
+    @GetMapping(path = "getAllCategories")
     public List<Category> getAllCategories() {
         return new ArrayList<>();
     }
 
+    @GetMapping(path = "getCategory")
     public void getCategory() {}
 
+    @PostMapping(path = "createCategory")
     public void createCategory() {}
 
+    @PutMapping(path = "updateCategory")
     public void updateCategory() {}
 
+    @DeleteMapping(path = "deleteCategory")
     public void deleteCategory() {}
 }

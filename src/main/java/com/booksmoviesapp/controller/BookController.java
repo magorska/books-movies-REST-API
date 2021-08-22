@@ -1,8 +1,7 @@
 package com.booksmoviesapp.controller;
 
 import com.booksmoviesapp.domain.Book;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,16 +10,21 @@ import java.util.List;
 @RequestMapping("/v1/books")
 public class BookController {
 
+    @GetMapping(path = "getAllBooks")
     public List<Book> getAllBooks() {
         return new ArrayList<>();
     }
 
+    @GetMapping(path = "getBook")
     public void getBook() {}
 
+    @PostMapping(path = "createBook")
     public void createBook() {}
 
+    @PutMapping(path = "updateBook")
     public void updateBook() {}
 
+    @DeleteMapping(path = "deleteBook")
     public void deleteBook() {}
 
 }
