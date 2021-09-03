@@ -15,7 +15,6 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class MovieDbService {
 
-    @Autowired
     private final MovieRepository movieRepository;
 
     public List<Movie> getAllMovies() {

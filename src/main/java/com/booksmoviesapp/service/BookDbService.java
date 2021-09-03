@@ -13,7 +13,6 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class BookDbService {
 
-    @Autowired
     private final BookRepository bookRepository;
 
     public List<Book> getAllBooks() {
