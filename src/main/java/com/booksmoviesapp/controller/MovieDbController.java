@@ -20,9 +20,9 @@ public class MovieDbController {
     private final MovieDbSearched movieDbSearched;
 
     @GetMapping("/searchList")
-    public void getSearch() {
+    public void getSearch(String keyWord) {
 
-        List<MovieDbSearchedListDto> searched = movieDbClient.getMovieDbSearchList();
+        List<MovieDbSearchedListDto> searched = movieDbClient.getMovieDbSearchList(keyWord);
 
         searched.forEach(movieDbSearchedListDto -> System.out.println(movieDbSearchedListDto.getPages()));
         System.out.println("Movies on this pages");
