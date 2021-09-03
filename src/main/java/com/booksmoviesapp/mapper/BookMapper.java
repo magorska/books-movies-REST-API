@@ -2,10 +2,12 @@ package com.booksmoviesapp.mapper;
 
 import com.booksmoviesapp.domain.Book;
 import com.booksmoviesapp.domain.dto.BookDto;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class BookMapper {
 
     public Book mapToBook(final BookDto bookDto) {

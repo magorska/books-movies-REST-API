@@ -13,7 +13,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/movieDb")
 @RequiredArgsConstructor
-public class MovieDbController {
+public class MovieDbClientController {
 
     private final MovieDbClient movieDbClient;
     private final MovieDbSearchedListDto movieDbSearchedListDto;
