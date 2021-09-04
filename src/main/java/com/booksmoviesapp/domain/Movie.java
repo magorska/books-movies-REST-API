@@ -33,8 +33,7 @@ public class Movie {
     @JoinColumn(name = "REVIEW_ID")
     private Review review;
 
-    @ManyToOne
     @JoinColumn(name = "CATEGORY")
-    private Category category;
+    private MovieCategory category;
 
 }

@@ -1,5 +1,6 @@
 package com.booksmoviesapp.service;
 
+import com.booksmoviesapp.config.AdminConfig;
 import com.booksmoviesapp.domain.Book;
 import com.booksmoviesapp.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
@@ -30,6 +31,9 @@ public class BookDbService {
     public void deleteBook(Long bookId) {
         bookRepository.deleteById(bookId);
     }
+
+
+
 
 
 }

@@ -1,10 +1,7 @@
 package com.booksmoviesapp.domain.dto;
 
-import com.booksmoviesapp.domain.Category;
+import com.booksmoviesapp.domain.MovieCategory;
 import com.booksmoviesapp.domain.Review;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 //@Getter
 //@AllArgsConstructor
@@ -16,7 +13,7 @@ public class MovieDto {
     private String director;
     private int releaseYear;
     private Review review;
-    private Category category;
+    private MovieCategory category;
 
     public static class MovieBuilder {
 
@@ -25,7 +22,7 @@ public class MovieDto {
         private String director;
         private int releaseYear;
         private Review review;
-        private Category category;
+        private MovieCategory category;
 
         public MovieBuilder movieId(Long movieId) {
             this.movieId = movieId;
@@ -52,14 +49,14 @@ public class MovieDto {
             return this;
         }
 
-        public MovieBuilder category(Category category) {
+        public MovieBuilder category(MovieCategory category) {
             this.category = category;
             return this;
         }
 
     }
 
-    public MovieDto(Long movieId, String title, String director, int releaseYear, Review review, Category category) {
+    public MovieDto(Long movieId, String title, String director, int releaseYear, Review review, MovieCategory category) {
         this.movieId = movieId;
         this.title = title;
         this.director = director;
@@ -110,11 +107,11 @@ public class MovieDto {
         this.review = review;
     }
 
-    public Category getCategory() {
+    public MovieCategory getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public void setCategory(MovieCategory category) {
         this.category = category;
     }
 }

@@ -1,16 +1,12 @@
 package com.booksmoviesapp.controller;
 
 import com.booksmoviesapp.domain.Book;
-import com.booksmoviesapp.domain.Category;
-import com.booksmoviesapp.domain.Review;
 import com.booksmoviesapp.domain.dto.BookDto;
 import com.booksmoviesapp.mapper.BookMapper;
 import com.booksmoviesapp.service.BookDbService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController

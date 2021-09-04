@@ -39,8 +39,7 @@ public class Book {
     @JoinColumn(name = "REVIEW_ID")
     private Review review;
 
-    @ManyToOne
     @JoinColumn(name = "CATEGORY")
-    private Category category;
+    private BookCategory category;
 
 }

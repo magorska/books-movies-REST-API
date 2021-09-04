@@ -1,10 +1,8 @@
 package com.booksmoviesapp.domain.dto;
 
-import com.booksmoviesapp.domain.Category;
+import com.booksmoviesapp.domain.Book;
+import com.booksmoviesapp.domain.BookCategory;
 import com.booksmoviesapp.domain.Review;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 //@Getter
 //@AllArgsConstructor
@@ -18,7 +16,7 @@ public class BookDto {
     private Long isbn;
     private int pages;
     private Review review;
-    private Category category;
+    private BookCategory category;
 
     public static class BookBuilder {
 
@@ -29,7 +27,7 @@ public class BookDto {
         private Long isbn;
         private int pages;
         private Review review;
-        private Category category;
+        private BookCategory category;
 
         public BookBuilder bookId(Long bookId) {
             this.bookId = bookId;
@@ -66,7 +64,7 @@ public class BookDto {
             return this;
         }
 
-        public BookBuilder category(Category category) {
+        public BookBuilder category(BookCategory category) {
             this.category = category;
             return this;
         }
@@ -76,7 +74,7 @@ public class BookDto {
         }
     }
 
-    public BookDto(Long bookId, String title, String author, int releaseYear, Long isbn, int pages, Review review, Category category) {
+    public BookDto(Long bookId, String title, String author, int releaseYear, Long isbn, int pages, Review review, BookCategory category) {
         this.bookId = bookId;
         this.title = title;
         this.author = author;
@@ -145,11 +143,11 @@ public class BookDto {
         this.review = review;
     }
 
-    public Category getCategory() {
+    public BookCategory getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public void setCategory(BookCategory category) {
         this.category = category;
     }
 }
