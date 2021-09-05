@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class ReviewDto {
 
     private Long reviewId;
-    private double rating;
+    private int rating;
     private String review;
     private Book book;
     private Movie movie;
@@ -20,7 +20,7 @@ public class ReviewDto {
     public static class ReviewBuilder {
 
         private Long reviewId;
-        private double rating;
+        private int rating;
         private String review;
         private Book book;
         private Movie movie;
@@ -30,7 +30,7 @@ public class ReviewDto {
             return this;
         }
 
-        public ReviewBuilder rating(double rating) {
+        public ReviewBuilder rating(int rating) {
             this.rating = rating;
             return this;
         }
@@ -55,7 +55,7 @@ public class ReviewDto {
         }
     }
 
-    public ReviewDto(Long reviewId, double rating, String review, Book book, Movie movie) {
+    public ReviewDto(Long reviewId, int rating, String review, Book book, Movie movie) {
         this.reviewId = reviewId;
         this.rating = rating;
         this.review = review;
@@ -77,7 +77,7 @@ public class ReviewDto {
         return rating;
     }
 
-    public void setRating(double rating) {
+    public void setRating(int rating) {
         this.rating = rating;
     }
 

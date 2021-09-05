@@ -13,39 +13,41 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/v1/reviews")
+@RequestMapping("/v1")
 @RequiredArgsConstructor
 public class ReviewController {
 
     private final ReviewDbService reviewDbService;
     private final ReviewMapper reviewMapper;
 
-    @GetMapping(path = "getAllReviews")
+    @GetMapping(path = "/reviews/allReviews")
     public List<ReviewDto> getAllReviews() {
         return reviewMapper.mapToReviewDtoList(reviewDbService.getAllReviews());
     }
 
-    @GetMapping(path = "getReview")
-    public ReviewDto getReview(@RequestParam Long reviewId) throws ReviewNotFoundException {
+    @GetMapping(path = "/reviews/{reviewId}")
+    public ReviewDto getReview(@PathVariable Long reviewId) throws ReviewNotFoundException {
         return reviewMapper.mapToReviewDto(reviewDbService.getReview(reviewId)
                 .orElseThrow(() -> new ReviewNotFoundException("Review with id: " + reviewId + " not found.")));
     }
 
-    @PostMapping(path = "createReview")
+    @PostMapping(path = "/reviews")
     public void createReview(@RequestBody ReviewDto reviewDto) {
         Review review = reviewMapper.mapToReview(reviewDto);
+//        reviewDbService.rate(review.getReviewId());
         reviewDbService.saveReview(review);
     }
 
-    @PutMapping(path = "updateReview")
+    @PutMapping(path = "/reviews")
     public ReviewDto updateReview(@RequestBody ReviewDto reviewDto) {
         Review review = reviewMapper.mapToReview(reviewDto);
         Review savedReview = reviewDbService.saveReview(review);
+//        savedReview.setRating(review.getRating());
         return reviewMapper.mapToReviewDto(savedReview);
     }
 
-    @DeleteMapping(path = "deleteReview")
-    public void deleteReview(@RequestParam Long reviewId) {
+    @DeleteMapping(path = "/reviews/{reviewId}")
+    public void deleteReview(@PathVariable Long reviewId) {
         reviewDbService.deleteReview(reviewId);
     }
 }
