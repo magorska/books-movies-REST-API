@@ -1,6 +1,5 @@
 package com.booksmoviesapp.domain.dto;
 
-import com.booksmoviesapp.domain.Book;
 import com.booksmoviesapp.domain.BookCategory;
 import com.booksmoviesapp.domain.Review;
 
