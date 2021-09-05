@@ -1,7 +1,9 @@
 package com.booksmoviesapp.controller;
 
+import com.booksmoviesapp.domain.MovieDbSearched;
 import com.booksmoviesapp.domain.dto.MovieDbSearchedDto;
 import com.booksmoviesapp.moviedb.client.MovieDbClient;
+import com.booksmoviesapp.moviedb.client.facade.MovieDbFacade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,62 +17,36 @@ import java.util.List;
 public class MovieDbClientController {
 
     private final MovieDbClient movieDbClient;
+    private final MovieDbFacade movieDbFacade;
 
     @GetMapping("/searchList")
-    public void getSearch(String keyWord) {
-
-        List<MovieDbSearchedDto> searched = movieDbClient.getMovieDbSearchList(keyWord);
-
-        searched.forEach(movieDbSearchedDto -> System.out.println(movieDbSearchedDto.getTitle() + "\n" +
-                movieDbSearchedDto.getOverview() + "\n" + movieDbSearchedDto.getReleaseDate() +
-                "\n" + movieDbSearchedDto.getVoteAverage()));
+    public List<MovieDbSearchedDto> getSearch(String keyWord) {
+        return movieDbFacade.searchedList(keyWord);
     }
 
-
     @GetMapping("/latest")
-    public void getLatest() {
-        MovieDbSearchedDto latestMovie = movieDbClient.getMovieDbLatest();
-
-        latestMovie.toString();
+    public MovieDbSearchedDto getLatest() {
+        return movieDbFacade.getLatest();
     }
 
     @GetMapping("/upcoming")
-    public void getUpComing() {
-
-        List<MovieDbSearchedDto> searchedUpComing = movieDbClient.getMovieDbUpComingList();
-
-        searchedUpComing.forEach(movieDbSearchedDto -> System.out.println(movieDbSearchedDto.getTitle() + "\n" +
-                movieDbSearchedDto.getOverview() + "\n" + movieDbSearchedDto.getReleaseDate() +
-                "\n" + movieDbSearchedDto.getVoteAverage()));
+    public List<MovieDbSearchedDto> getUpComing() {
+        return movieDbFacade.getUpComing();
     }
 
     @GetMapping("/topRated")
-    public void getTopRated() {
-
-        List<MovieDbSearchedDto> searchedTopRated = movieDbClient.getMovieDbTopRatedList();
-
-        searchedTopRated.forEach(movieDbSearchedDto -> System.out.println(movieDbSearchedDto.getTitle() + "\n" +
-                movieDbSearchedDto.getOverview() + "\n" + movieDbSearchedDto.getReleaseDate() +
-                "\n" + movieDbSearchedDto.getVoteAverage()));
+    public List<MovieDbSearchedDto> getTopRated() {
+        return movieDbFacade.getTopRated();
     }
 
     @GetMapping("/dayTrending")
-    public void getDayTrending() {
-
-        List<MovieDbSearchedDto> searchedTopRated = movieDbClient.getMovieDbDayTrendingList();
-
-        searchedTopRated.forEach(movieDbSearchedDto -> System.out.println(movieDbSearchedDto.getTitle() + "\n" +
-                movieDbSearchedDto.getOverview() + "\n" + movieDbSearchedDto.getReleaseDate() +
-                "\n" + movieDbSearchedDto.getVoteAverage()));
+    public List<MovieDbSearchedDto> getDayTrending() {
+        return movieDbFacade.getDayTrending();
     }
 
     @GetMapping("/weekTrending")
-    public void getWeekTrending() {
+    public List<MovieDbSearchedDto> getWeekTrending() {
+        return movieDbFacade.getWeekTrending();
 
-        List<MovieDbSearchedDto> searchedTopRated = movieDbClient.getMovieDbWeekTrendingList();
-
-        searchedTopRated.forEach(movieDbSearchedDto -> System.out.println(movieDbSearchedDto.getTitle() + "\n" +
-                movieDbSearchedDto.getOverview() + "\n" + movieDbSearchedDto.getReleaseDate() +
-                "\n" + movieDbSearchedDto.getVoteAverage()));
     }
 }

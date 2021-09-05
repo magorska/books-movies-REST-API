@@ -10,14 +10,14 @@ public class MovieDbSearched {
     private Integer id;
     private String title;
     private String overview;
-    private String release_date;
+    private String releaseDate;
     private double voteAverage;
 
     @Override
     public String toString() {
         return "Title ='" + title + '\'' +
                 ", \n Overview = " + overview +
-                ", \n Release date = " + release_date +
+                ", \n Release date = " + releaseDate +
                 ", \n Vote average = " + voteAverage;
     }
 }

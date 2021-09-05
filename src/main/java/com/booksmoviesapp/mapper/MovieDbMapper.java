@@ -1,15 +1,12 @@
 package com.booksmoviesapp.mapper;
 
-import com.booksmoviesapp.domain.Book;
 import com.booksmoviesapp.domain.MovieDbSearched;
-import com.booksmoviesapp.domain.dto.BookDto;
 import com.booksmoviesapp.domain.dto.MovieDbSearchedDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static java.util.stream.Collectors.toList;
 
 @Service
 public class MovieDbMapper {
@@ -29,7 +26,7 @@ public class MovieDbMapper {
                 movieDbSearched.getId(),
                 movieDbSearched.getTitle(),
                 movieDbSearched.getOverview(),
-                movieDbSearched.getRelease_date(),
+                movieDbSearched.getReleaseDate(),
                 movieDbSearched.getVoteAverage()
         );
     }
@@ -37,7 +34,16 @@ public class MovieDbMapper {
     public List<MovieDbSearchedDto> mapToMovieDbDtoList(final List<MovieDbSearched> movieDbSearched) {
         return movieDbSearched.stream()
                 .map(movie -> new MovieDbSearchedDto(
-                        movie.getId(), movie.getTitle(), movie.getOverview(), movie.getRelease_date(),
+                        movie.getId(), movie.getTitle(), movie.getOverview(), movie.getReleaseDate(),
+                        movie.getVoteAverage()
+                ))
+                .collect(Collectors.toList());
+    }
+
+    public List<MovieDbSearched> mapToMovieDbList(final List<MovieDbSearchedDto> movieDbSearchedDto) {
+        return movieDbSearchedDto.stream()
+                .map(movie -> new MovieDbSearched(
+                        movie.getId(), movie.getTitle(), movie.getOverview(), movie.getReleaseDate(),
                         movie.getVoteAverage()
                 ))
                 .collect(Collectors.toList());
