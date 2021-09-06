@@ -3,13 +3,9 @@ package com.booksmoviesapp.moviedb.client.facade;
 import com.booksmoviesapp.domain.MovieDbSearched;
 import com.booksmoviesapp.domain.dto.MovieDbSearchedDto;
 import com.booksmoviesapp.mapper.MovieDbMapper;
-import com.booksmoviesapp.moviedb.client.MovieDbClient;
 import com.booksmoviesapp.service.MovieDbClientService;
-import com.booksmoviesapp.service.MovieDbService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.ArrayList;
 import java.util.List;

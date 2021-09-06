@@ -7,24 +7,24 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-//@NamedNativeQueries({
-//        @NamedNativeQuery(
-//                name = "Books.topThreeBooks",
-//                query = "SELECT TITLE, AUTHOR FROM BOOKS" +
-//                        " LEFT JOIN REVIEWS ON BOOKS.ID = REVIEWS.BOOKS_ID" +
-//                        " ORDER BY rating DESC " +
-//                        " LIMIT 3",
-//                resultClass = Book.class
-//        ),
-//        @NamedNativeQuery(
-//                name = "Movies.topFiveMovies",
-//                query = "SELECT title, director FROM MOVIES" +
-//                        " LEFT JOIN REVIEWS ON MOVIES.ID = REVIEWS.MOVIES_ID" +
-//                        " ORDER BY rating DESC " +
-//                        " LIMIT 5",
-//                resultClass = Movie.class
-//        )
-//})
+@NamedNativeQueries({
+        @NamedNativeQuery(
+                name = "Books.topThreeBooks",
+                query = "SELECT TITLE, AUTHOR FROM BOOKS" +
+                        " LEFT JOIN REVIEWS ON BOOKS.ID = REVIEWS.BOOKS_ID" +
+                        " ORDER BY rating DESC " +
+                        " LIMIT 3",
+                resultClass = Book.class
+        ),
+        @NamedNativeQuery(
+                name = "Movies.topFiveMovies",
+                query = "SELECT title, director FROM MOVIES" +
+                        " LEFT JOIN REVIEWS ON MOVIES.ID = REVIEWS.MOVIES_ID" +
+                        " ORDER BY rating DESC " +
+                        " LIMIT 5",
+                resultClass = Movie.class
+        )
+})
 
 @Entity
 @Data

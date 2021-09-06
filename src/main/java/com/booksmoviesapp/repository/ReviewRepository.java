@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.lang.annotation.Native;
 import java.util.List;
 
-
 @Repository
 @Transactional
 public interface ReviewRepository extends CrudRepository<Review, Long> {

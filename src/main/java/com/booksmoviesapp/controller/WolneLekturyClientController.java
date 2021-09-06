@@ -1,7 +1,7 @@
 package com.booksmoviesapp.controller;
 
 import com.booksmoviesapp.domain.dto.WolneLekturySearchedDto;
-import com.booksmoviesapp.wolneLektury.client.WolneLekturyClient;
+import com.booksmoviesapp.wolneLektury.client.facade.WolneLekturyFacade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,16 +14,10 @@ import java.util.List;
 @RequiredArgsConstructor
 public class WolneLekturyClientController {
 
-    private final WolneLekturyClient wolneLekturyClient;
+    private final WolneLekturyFacade wolneLekturyFacade;
 
     @GetMapping("allBooks")
-    public void getAllBooks() {
-
-        List<WolneLekturySearchedDto> searchedList = wolneLekturyClient.getBooks();
-
-        searchedList.forEach(searchList -> {
-            System.out.println(searchList.getTitle() + "\n" + searchList.getAuthor() +
-                    "\n" + searchList.getCategory());
-        });
+    public List<WolneLekturySearchedDto> getAllBooks() {
+        return wolneLekturyFacade.searchedList();
     }
 }

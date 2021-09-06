@@ -1,10 +1,8 @@
 package com.booksmoviesapp.service;
 
-import com.booksmoviesapp.config.AdminConfig;
 import com.booksmoviesapp.domain.Book;
 import com.booksmoviesapp.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

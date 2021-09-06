@@ -2,10 +2,8 @@ package com.booksmoviesapp.domain.dto;
 
 import com.booksmoviesapp.domain.BookCategory;
 import com.booksmoviesapp.domain.Review;
+import lombok.Builder;
 
-//@Getter
-//@AllArgsConstructor
-//@NoArgsConstructor
 public class BookDto {
 
     private Long bookId;

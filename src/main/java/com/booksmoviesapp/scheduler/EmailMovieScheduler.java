@@ -3,14 +3,11 @@ package com.booksmoviesapp.scheduler;
 import com.booksmoviesapp.config.AdminConfig;
 import com.booksmoviesapp.domain.Mail;
 import com.booksmoviesapp.domain.Movie;
-import com.booksmoviesapp.repository.BookRepository;
-import com.booksmoviesapp.repository.MovieRepository;
 import com.booksmoviesapp.repository.ReviewRepository;
 import com.booksmoviesapp.service.SimpleEmailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import org.w3c.dom.stylesheets.LinkStyle;
 
 import java.util.List;
 

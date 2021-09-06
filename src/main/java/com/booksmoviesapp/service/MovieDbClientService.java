@@ -1,6 +1,5 @@
 package com.booksmoviesapp.service;
 
-import com.booksmoviesapp.domain.MovieDbSearched;
 import com.booksmoviesapp.domain.dto.MovieDbSearchedDto;
 import com.booksmoviesapp.moviedb.client.MovieDbClient;
 import lombok.RequiredArgsConstructor;
