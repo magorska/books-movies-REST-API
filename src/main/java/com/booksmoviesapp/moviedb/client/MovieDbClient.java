@@ -30,8 +30,6 @@ public class MovieDbClient {
         URI url = UriComponentsBuilder.fromHttpUrl(movieDbEndpoint + "search/movie")
                 .queryParam("api_key", movieDbKey)
                 .queryParam("query", partOfTitle)
-//                .queryParam("pages")
-//                .queryParam("results", "id", "name")
                 .build()
                 .encode()
                 .toUri();

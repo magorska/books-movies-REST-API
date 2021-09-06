@@ -16,7 +16,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MovieDbClientController {
 
-    private final MovieDbClient movieDbClient;
     private final MovieDbFacade movieDbFacade;
 
     @GetMapping("/searchList")

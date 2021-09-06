@@ -5,6 +5,7 @@ import com.booksmoviesapp.domain.Movie;
 import com.booksmoviesapp.domain.Review;
 import com.booksmoviesapp.repository.ReviewRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -7,6 +7,7 @@ import com.booksmoviesapp.domain.dto.ReviewDto;
 import com.booksmoviesapp.mapper.ReviewMapper;
 import com.booksmoviesapp.service.ReviewDbService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ public class ReviewController {
     @PostMapping(path = "/reviews")
     public void createReview(@RequestBody ReviewDto reviewDto) {
         Review review = reviewMapper.mapToReview(reviewDto);
-//        reviewDbService.rate(review.getReviewId());
+        reviewDbService.rate(review.getReviewId());
         reviewDbService.saveReview(review);
     }
 
@@ -42,7 +43,7 @@ public class ReviewController {
     public ReviewDto updateReview(@RequestBody ReviewDto reviewDto) {
         Review review = reviewMapper.mapToReview(reviewDto);
         Review savedReview = reviewDbService.saveReview(review);
-//        savedReview.setRating(review.getRating());
+        savedReview.setRating(review.getRating());
         return reviewMapper.mapToReviewDto(savedReview);
     }
 

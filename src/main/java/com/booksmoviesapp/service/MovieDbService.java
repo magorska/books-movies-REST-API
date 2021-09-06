@@ -2,6 +2,8 @@ package com.booksmoviesapp.service;
 
 import com.booksmoviesapp.domain.Book;
 import com.booksmoviesapp.domain.Movie;
+import com.booksmoviesapp.domain.dto.MovieDbSearchedDto;
+import com.booksmoviesapp.moviedb.client.MovieDbClient;
 import com.booksmoviesapp.repository.BookRepository;
 import com.booksmoviesapp.repository.MovieRepository;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +18,7 @@ import java.util.Optional;
 public class MovieDbService {
 
     private final MovieRepository movieRepository;
+    private final MovieDbClientService movieDbClientService;
 
     public List<Movie> getAllMovies() {
         return movieRepository.findAll();
@@ -32,6 +35,5 @@ public class MovieDbService {
     public void deleteMovie(Long movieId) {
         movieRepository.deleteById(movieId);
     }
-
 
 }

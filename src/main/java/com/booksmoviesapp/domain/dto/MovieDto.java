@@ -3,9 +3,6 @@ package com.booksmoviesapp.domain.dto;
 import com.booksmoviesapp.domain.MovieCategory;
 import com.booksmoviesapp.domain.Review;
 
-//@Getter
-//@AllArgsConstructor
-//@NoArgsConstructor
 public class MovieDto {
 
     private Long movieId;
