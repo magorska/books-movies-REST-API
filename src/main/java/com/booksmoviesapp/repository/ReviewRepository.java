@@ -8,7 +8,6 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.lang.annotation.Native;
 import java.util.List;
 
 @Repository
@@ -19,8 +18,8 @@ public interface ReviewRepository extends CrudRepository<Review, Long> {
     List<Review> findAll();
 
     @Query(nativeQuery = true)
-    List<Book> topThreeBooks();
+    List<Book> topThree();
 
     @Query(nativeQuery = true)
-    List<Movie> topFiveMovies();
+    List<Movie> topFive();
 }

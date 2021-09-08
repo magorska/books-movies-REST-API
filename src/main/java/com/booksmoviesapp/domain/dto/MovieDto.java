@@ -51,6 +51,10 @@ public class MovieDto {
             return this;
         }
 
+        public MovieDto build() {
+            return  new MovieDto(movieId, title, director, releaseYear, review, category);
+        }
+
     }
 
     public MovieDto(Long movieId, String title, String director, int releaseYear, Review review, MovieCategory category) {

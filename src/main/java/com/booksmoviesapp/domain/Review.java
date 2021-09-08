@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 
 @NamedNativeQueries({
         @NamedNativeQuery(
-                name = "Books.topThreeBooks",
+                name = "topThree",
                 query = "SELECT TITLE, AUTHOR FROM BOOKS" +
                         " LEFT JOIN REVIEWS ON BOOKS.ID = REVIEWS.BOOKS_ID" +
                         " ORDER BY rating DESC " +
@@ -17,7 +17,7 @@ import javax.validation.constraints.NotNull;
                 resultClass = Book.class
         ),
         @NamedNativeQuery(
-                name = "Movies.topFiveMovies",
+                name = "topFive",
                 query = "SELECT title, director FROM MOVIES" +
                         " LEFT JOIN REVIEWS ON MOVIES.ID = REVIEWS.MOVIES_ID" +
                         " ORDER BY rating DESC " +

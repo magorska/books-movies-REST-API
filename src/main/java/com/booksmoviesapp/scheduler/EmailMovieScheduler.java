@@ -3,6 +3,7 @@ package com.booksmoviesapp.scheduler;
 import com.booksmoviesapp.config.AdminConfig;
 import com.booksmoviesapp.domain.Mail;
 import com.booksmoviesapp.domain.Movie;
+import com.booksmoviesapp.repository.MovieRepository;
 import com.booksmoviesapp.repository.ReviewRepository;
 import com.booksmoviesapp.service.SimpleEmailService;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +24,7 @@ public class EmailMovieScheduler {
 
     @Scheduled(cron = "0 10 * * 1")
     public void sendInformationEmail() {
-        List<Movie> topMovies = reviewRepository.topFiveMovies();
+        List<Movie> topMovies = reviewRepository.topFive();
         simpleEmailService.send(
                 new Mail(
                         adminConfig.getAdminMail(),
