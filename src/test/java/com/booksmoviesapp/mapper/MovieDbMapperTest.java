@@ -26,7 +26,7 @@ class MovieDbMapperTest {
         assertEquals(5.5, mappedMovieDb.getVoteAverage());
     }
     @Test
-    void testMapToMovieDto() {
+    void testMapToMovieDbDto() {
         //Given
         MovieDbMapper movieDbMapper = new MovieDbMapper();
         MovieDbSearched movieDb = new MovieDbSearched(1, "title", "overview", "date", 5.5);
@@ -41,13 +41,30 @@ class MovieDbMapperTest {
     }
 
     @Test
-    void testMapToMovieDtoList() {
+    void testMapToMovieDbDtoList() {
         //Given
         MovieDbMapper movieDbMapper = new MovieDbMapper();
         MovieDbSearched movieDb = new MovieDbSearched(1, "title", "overview", "date", 5.5);
         List<MovieDbSearched> movieDbList = Arrays.asList(movieDb);
         //When
         List<MovieDbSearchedDto> mappedMovieDbList = movieDbMapper.mapToMovieDbDtoList(movieDbList);
+        //Then
+        assertEquals(1, mappedMovieDbList.size());
+        assertEquals(1, mappedMovieDbList.get(0).getId());
+        assertEquals("title", mappedMovieDbList.get(0).getTitle());
+        assertEquals("overview", mappedMovieDbList.get(0).getOverview());
+        assertEquals("date", mappedMovieDbList.get(0).getReleaseDate());
+        assertEquals(5.5, mappedMovieDbList.get(0).getVoteAverage());
+    }
+
+    @Test
+    void testMapToMovieDbList() {
+        //Given
+        MovieDbMapper movieDbMapper = new MovieDbMapper();
+        MovieDbSearchedDto movieDbDto = new MovieDbSearchedDto(1, "title", "overview", "date", 5.5);
+        List<MovieDbSearchedDto> movieDbDtoList = Arrays.asList(movieDbDto);
+        //When
+        List<MovieDbSearched> mappedMovieDbList = movieDbMapper.mapToMovieDbList(movieDbDtoList);
         //Then
         assertEquals(1, mappedMovieDbList.size());
         assertEquals(1, mappedMovieDbList.get(0).getId());

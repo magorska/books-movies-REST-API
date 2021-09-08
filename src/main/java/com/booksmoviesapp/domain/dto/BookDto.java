@@ -2,7 +2,6 @@ package com.booksmoviesapp.domain.dto;
 
 import com.booksmoviesapp.domain.BookCategory;
 import com.booksmoviesapp.domain.Review;
-import lombok.Builder;
 
 public class BookDto {
 

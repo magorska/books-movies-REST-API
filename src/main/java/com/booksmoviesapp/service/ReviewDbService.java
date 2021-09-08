@@ -1,11 +1,9 @@
 package com.booksmoviesapp.service;
 
 import com.booksmoviesapp.controller.ReviewNotFoundException;
-import com.booksmoviesapp.domain.Movie;
 import com.booksmoviesapp.domain.Review;
 import com.booksmoviesapp.repository.ReviewRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -33,7 +31,7 @@ public class ReviewDbService {
         reviewRepository.deleteById(reviewId);
     }
 
-    public void rate(Long reviewId) {
+    public Review rate(Long reviewId) {
         Optional<Review> rate = reviewRepository.findById(reviewId);
         Review toRate = rate.orElseThrow(() -> new ReviewNotFoundException("Review with id: " + reviewId + " not found."));
         int yourRate = toRate.getRating();
@@ -43,6 +41,7 @@ public class ReviewDbService {
         } else {
             System.out.println("You have to rate between 1 and 10");
         }
+        return toRate;
     }
 
 }
