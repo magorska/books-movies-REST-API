@@ -1,5 +1,6 @@
 package com.booksmoviesapp.moviedb.client;
 
+import com.booksmoviesapp.config.MovieDbClientConfig;
 import com.booksmoviesapp.domain.dto.MovieDbSearchedDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,17 +19,18 @@ import java.util.Optional;
 public class MovieDbClient {
 
     private final RestTemplate restTemplate;
+    private final MovieDbClientConfig movieDbClientConfig;
 
-    @Value("${themoviedb.api.endpoint.prod}")
-    private String movieDbEndpoint;
-
-    @Value("${themoviedb.api.key}")
-    private String movieDbKey;
+//    @Value("${themoviedb.api.endpoint.prod}")
+//    private String movieDbEndpoint;
+//
+//    @Value("${themoviedb.api.key}")
+//    private String movieDbKey;
 
     public List<MovieDbSearchedDto> getMovieDbSearchList(String partOfTitle) {
 
-        URI url = UriComponentsBuilder.fromHttpUrl(movieDbEndpoint + "search/movie")
-                .queryParam("api_key", movieDbKey)
+        URI url = UriComponentsBuilder.fromHttpUrl(movieDbClientConfig.getMovieDbApiEndpoint() + "search/movie")
+                .queryParam("api_key", movieDbClientConfig.getApiKey())
                 .queryParam("query", partOfTitle)
                 .build()
                 .encode()
@@ -44,8 +46,8 @@ public class MovieDbClient {
 
     public MovieDbSearchedDto getMovieDbLatest() {
 
-        URI url = UriComponentsBuilder.fromHttpUrl(movieDbEndpoint + "movie/latest")
-                .queryParam("api_key", movieDbKey)
+        URI url = UriComponentsBuilder.fromHttpUrl(movieDbClientConfig.getMovieDbApiEndpoint() + "movie/latest")
+                .queryParam("api_key", movieDbClientConfig.getApiKey())
                 .build()
                 .encode()
                 .toUri();
@@ -58,8 +60,8 @@ public class MovieDbClient {
 
     public List<MovieDbSearchedDto> getMovieDbUpComingList() {
 
-        URI url = UriComponentsBuilder.fromHttpUrl(movieDbEndpoint + "movie/upcoming")
-                .queryParam("api_key", movieDbKey)
+        URI url = UriComponentsBuilder.fromHttpUrl(movieDbClientConfig.getMovieDbApiEndpoint() + "movie/upcoming")
+                .queryParam("api_key", movieDbClientConfig.getApiKey())
                 .build()
                 .encode()
                 .toUri();
@@ -74,8 +76,8 @@ public class MovieDbClient {
 
     public List<MovieDbSearchedDto> getMovieDbTopRatedList() {
 
-        URI url = UriComponentsBuilder.fromHttpUrl(movieDbEndpoint + "movie/top_rated")
-                .queryParam("api_key", movieDbKey)
+        URI url = UriComponentsBuilder.fromHttpUrl(movieDbClientConfig.getMovieDbApiEndpoint() + "movie/top_rated")
+                .queryParam("api_key", movieDbClientConfig.getApiKey())
                 .build()
                 .encode()
                 .toUri();
@@ -90,8 +92,8 @@ public class MovieDbClient {
 
     public List<MovieDbSearchedDto> getMovieDbDayTrendingList() {
 
-        URI url = UriComponentsBuilder.fromHttpUrl(movieDbEndpoint + "trending/movie/day")
-                .queryParam("api_key", movieDbKey)
+        URI url = UriComponentsBuilder.fromHttpUrl(movieDbClientConfig.getMovieDbApiEndpoint() + "trending/movie/day")
+                .queryParam("api_key", movieDbClientConfig.getApiKey())
                 .build()
                 .encode()
                 .toUri();
@@ -106,8 +108,8 @@ public class MovieDbClient {
 
     public List<MovieDbSearchedDto> getMovieDbWeekTrendingList() {
 
-        URI url = UriComponentsBuilder.fromHttpUrl(movieDbEndpoint + "trending/movie/week")
-                .queryParam("api_key", movieDbKey)
+        URI url = UriComponentsBuilder.fromHttpUrl(movieDbClientConfig.getMovieDbApiEndpoint() + "trending/movie/week")
+                .queryParam("api_key", movieDbClientConfig.getApiKey())
                 .build()
                 .encode()
                 .toUri();

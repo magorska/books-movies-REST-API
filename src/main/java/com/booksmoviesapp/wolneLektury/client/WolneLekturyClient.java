@@ -1,5 +1,6 @@
 package com.booksmoviesapp.wolneLektury.client;
 
+import com.booksmoviesapp.config.WolneLekturyClientConfig;
 import com.booksmoviesapp.domain.dto.WolneLekturySearchedDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,13 +19,11 @@ import java.util.Optional;
 public class WolneLekturyClient {
 
     private final RestTemplate restTemplate;
-
-    @Value("${wolnelektury.api.endpoint.prod}")
-    private String wolneLekturyEndpoint;
+    private final WolneLekturyClientConfig wolneLekturyClientConfig;
 
     public List<WolneLekturySearchedDto> getBooks() {
 
-        URI url = UriComponentsBuilder.fromHttpUrl(wolneLekturyEndpoint + "/books")
+        URI url = UriComponentsBuilder.fromHttpUrl(wolneLekturyClientConfig.getWolneLekturyApiEndpoint() + "books")
                 .build()
                 .encode()
                 .toUri();
