@@ -3,6 +3,8 @@ package com.booksmoviesapp.domain.dto;
 import com.booksmoviesapp.domain.MovieCategory;
 import com.booksmoviesapp.domain.Review;
 
+import java.util.Objects;
+
 public class MovieDto {
 
     private Long movieId;
@@ -114,5 +116,18 @@ public class MovieDto {
 
     public void setCategory(MovieCategory category) {
         this.category = category;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MovieDto movieDto = (MovieDto) o;
+        return releaseYear == movieDto.releaseYear && Objects.equals(movieId, movieDto.movieId) && Objects.equals(title, movieDto.title) && Objects.equals(director, movieDto.director) && Objects.equals(review, movieDto.review) && category == movieDto.category;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(movieId, title, director, releaseYear, review, category);
     }
 }

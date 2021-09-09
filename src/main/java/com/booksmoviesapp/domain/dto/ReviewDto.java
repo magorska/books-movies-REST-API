@@ -3,6 +3,8 @@ package com.booksmoviesapp.domain.dto;
 import com.booksmoviesapp.domain.Book;
 import com.booksmoviesapp.domain.Movie;
 
+import java.util.Objects;
+
 public class ReviewDto {
 
     private Long reviewId;
@@ -97,5 +99,18 @@ public class ReviewDto {
 
     public void setMovie(Movie movie) {
         this.movie = movie;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ReviewDto reviewDto = (ReviewDto) o;
+        return rating == reviewDto.rating && Objects.equals(reviewId, reviewDto.reviewId) && Objects.equals(review, reviewDto.review) && Objects.equals(book, reviewDto.book) && Objects.equals(movie, reviewDto.movie);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(reviewId, rating, review, book, movie);
     }
 }

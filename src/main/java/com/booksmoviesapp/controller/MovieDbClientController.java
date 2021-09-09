@@ -1,8 +1,6 @@
 package com.booksmoviesapp.controller;
 
-import com.booksmoviesapp.domain.MovieDbSearched;
 import com.booksmoviesapp.domain.dto.MovieDbSearchedDto;
-import com.booksmoviesapp.moviedb.client.MovieDbClient;
 import com.booksmoviesapp.moviedb.client.facade.MovieDbFacade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -12,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/movieDb")
+@RequestMapping("/v1/movieDb")
 @RequiredArgsConstructor
 public class MovieDbClientController {
 

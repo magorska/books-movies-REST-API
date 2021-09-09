@@ -127,7 +127,6 @@ class BookControllerTest {
         Gson gson = new Gson();
         String jsonContent = gson.toJson(bookDto);
 
-
         // When & Then
         mockMvc.perform(MockMvcRequestBuilders
                 .post("/v1/books")
