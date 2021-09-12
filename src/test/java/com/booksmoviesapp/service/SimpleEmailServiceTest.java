@@ -22,9 +22,6 @@ class SimpleEmailServiceTest {
     @Mock
     private JavaMailSender javaMailSender;
 
-//    @Mock
-//    private MailCreatorService mailCreatorService;
-
     @Test
     public void shouldSendEmail() {
 

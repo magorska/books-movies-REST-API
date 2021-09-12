@@ -40,6 +40,7 @@ class WolneLekturyClientTest {
 
     @Test
     public void testGetBooks() throws URISyntaxException {
+
         // Given
         when(wolneLekturyClientConfig.getWolneLekturyApiEndpoint()).thenReturn("http://test.com/");
 

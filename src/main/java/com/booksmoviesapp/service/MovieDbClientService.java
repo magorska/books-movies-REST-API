@@ -2,6 +2,7 @@ package com.booksmoviesapp.service;
 
 import com.booksmoviesapp.domain.dto.MovieDbSearchedDto;
 import com.booksmoviesapp.moviedb.client.MovieDbClient;
+import com.booksmoviesapp.scheduler.MovieDbScheduler;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,7 @@ import java.util.List;
 public class MovieDbClientService {
 
     private final MovieDbClient movieDbClient;
+    private final MovieDbScheduler movieDbScheduler;
 
     public List<MovieDbSearchedDto> searchedList(String keyword) {
         return movieDbClient.getMovieDbSearchList(keyword);
@@ -23,18 +25,19 @@ public class MovieDbClientService {
     }
 
     public List<MovieDbSearchedDto> upComingMovies() {
-        return movieDbClient.getMovieDbUpComingList();
+        return movieDbScheduler.saveUpComing();
     }
 
     public List<MovieDbSearchedDto> topRated() {
-        return movieDbClient.getMovieDbTopRatedList();
+        return movieDbScheduler.saveTopRated();
     }
 
     public List<MovieDbSearchedDto> dayTrending() {
-        return movieDbClient.getMovieDbDayTrendingList();
+        return movieDbScheduler.saveDayTrending();
     }
 
     public List<MovieDbSearchedDto> weekTrending() {
-        return movieDbClient.getMovieDbWeekTrendingList();
+        return movieDbScheduler.saveWeekTrending();
     }
+
 }

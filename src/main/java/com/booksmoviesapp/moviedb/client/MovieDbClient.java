@@ -21,12 +21,6 @@ public class MovieDbClient {
     private final RestTemplate restTemplate;
     private final MovieDbClientConfig movieDbClientConfig;
 
-//    @Value("${themoviedb.api.endpoint.prod}")
-//    private String movieDbEndpoint;
-//
-//    @Value("${themoviedb.api.key}")
-//    private String movieDbKey;
-
     public List<MovieDbSearchedDto> getMovieDbSearchList(String partOfTitle) {
 
         URI url = UriComponentsBuilder.fromHttpUrl(movieDbClientConfig.getMovieDbApiEndpoint() + "search/movie")
@@ -121,7 +115,4 @@ public class MovieDbClient {
                 .map(Arrays::asList)
                 .orElse(Collections.emptyList());
     }
-
-
-
 }
