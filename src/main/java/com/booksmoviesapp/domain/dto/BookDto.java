@@ -1,6 +1,5 @@
 package com.booksmoviesapp.domain.dto;
 
-import com.booksmoviesapp.domain.BookCategory;
 import com.booksmoviesapp.domain.Review;
 
 import java.util.Objects;
@@ -14,7 +13,6 @@ public class BookDto {
     private Long isbn;
     private int pages;
     private Review review;
-    private BookCategory category;
 
     public static class BookBuilder {
 
@@ -25,7 +23,6 @@ public class BookDto {
         private Long isbn;
         private int pages;
         private Review review;
-        private BookCategory category;
 
         public BookBuilder bookId(Long bookId) {
             this.bookId = bookId;
@@ -62,17 +59,12 @@ public class BookDto {
             return this;
         }
 
-        public BookBuilder category(BookCategory category) {
-            this.category = category;
-            return this;
-        }
-
         public BookDto build() {
-            return new BookDto(bookId, title, author, releaseYear, isbn, pages, review, category);
+            return new BookDto(bookId, title, author, releaseYear, isbn, pages, review);
         }
     }
 
-    public BookDto(Long bookId, String title, String author, int releaseYear, Long isbn, int pages, Review review, BookCategory category) {
+    public BookDto(Long bookId, String title, String author, int releaseYear, Long isbn, int pages, Review review) {
         this.bookId = bookId;
         this.title = title;
         this.author = author;
@@ -80,7 +72,6 @@ public class BookDto {
         this.isbn = isbn;
         this.pages = pages;
         this.review = review;
-        this.category = category;
     }
 
     public BookDto() {}
@@ -141,24 +132,17 @@ public class BookDto {
         this.review = review;
     }
 
-    public BookCategory getCategory() {
-        return category;
-    }
-
-    public void setCategory(BookCategory category) {
-        this.category = category;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         BookDto bookDto = (BookDto) o;
-        return releaseYear == bookDto.releaseYear && pages == bookDto.pages && Objects.equals(bookId, bookDto.bookId) && Objects.equals(title, bookDto.title) && Objects.equals(author, bookDto.author) && Objects.equals(isbn, bookDto.isbn) && Objects.equals(review, bookDto.review) && category == bookDto.category;
+        return releaseYear == bookDto.releaseYear && pages == bookDto.pages && Objects.equals(bookId, bookDto.bookId) && Objects.equals(title, bookDto.title) && Objects.equals(author, bookDto.author) && Objects.equals(isbn, bookDto.isbn) && Objects.equals(review, bookDto.review);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(bookId, title, author, releaseYear, isbn, pages, review, category);
+        return Objects.hash(bookId, title, author, releaseYear, isbn, pages, review);
     }
 }

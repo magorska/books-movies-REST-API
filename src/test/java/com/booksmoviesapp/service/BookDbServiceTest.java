@@ -1,7 +1,6 @@
 package com.booksmoviesapp.service;
 
 import com.booksmoviesapp.domain.Book;
-import com.booksmoviesapp.domain.BookCategory;
 import com.booksmoviesapp.domain.Review;
 import com.booksmoviesapp.repository.BookRepository;
 import org.junit.jupiter.api.Test;
@@ -30,7 +29,7 @@ class BookDbServiceTest {
     @Test
     void testGetAllBooks() {
         //Given
-        Book book = new Book(1L, "title", "author", 2020, 1L, 20, new Review(), BookCategory.COMEDY);
+        Book book = new Book(1L, "title", "author", 2020, 1L, 20, new Review());
         List<Book> bookList = Arrays.asList(book);
         when(bookRepository.findAll()).thenReturn(bookList);
 
@@ -49,7 +48,7 @@ class BookDbServiceTest {
     @Test
     void testSaveBook() {
         //Given
-        Book book = new Book(1L, "title", "author", 2020, 1L, 20, new Review(), BookCategory.COMEDY);
+        Book book = new Book(1L, "title", "author", 2020, 1L, 20, new Review());
         when(bookRepository.save(book)).thenReturn(book);
 
         //When
@@ -68,7 +67,7 @@ class BookDbServiceTest {
     @Test
     void testGetBook() {
         // Given
-        Book book = new Book(1L, "title", "author", 2020, 1L, 20, new Review(), BookCategory.COMEDY);
+        Book book = new Book(1L, "title", "author", 2020, 1L, 20, new Review());
         when(bookRepository.findById(1L)).thenReturn(Optional.of(book));
 
         //When
@@ -81,7 +80,7 @@ class BookDbServiceTest {
     @Test
     void testDeleteBook() {
         //Given
-        Book book = new Book(1L, "title", "author", 2020, 1L, 20, new Review(), BookCategory.COMEDY);
+        Book book = new Book(1L, "title", "author", 2020, 1L, 20, new Review());
 
         //When
         bookDbService.deleteBook(1L);

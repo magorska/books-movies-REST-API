@@ -1,6 +1,5 @@
 package com.booksmoviesapp.domain.dto;
 
-import com.booksmoviesapp.domain.MovieCategory;
 import com.booksmoviesapp.domain.Review;
 
 import java.util.Objects;
@@ -12,7 +11,6 @@ public class MovieDto {
     private String director;
     private int releaseYear;
     private Review review;
-    private MovieCategory category;
 
     public static class MovieBuilder {
 
@@ -21,7 +19,6 @@ public class MovieDto {
         private String director;
         private int releaseYear;
         private Review review;
-        private MovieCategory category;
 
         public MovieBuilder movieId(Long movieId) {
             this.movieId = movieId;
@@ -48,24 +45,18 @@ public class MovieDto {
             return this;
         }
 
-        public MovieBuilder category(MovieCategory category) {
-            this.category = category;
-            return this;
-        }
-
         public MovieDto build() {
-            return  new MovieDto(movieId, title, director, releaseYear, review, category);
+            return  new MovieDto(movieId, title, director, releaseYear, review);
         }
 
     }
 
-    public MovieDto(Long movieId, String title, String director, int releaseYear, Review review, MovieCategory category) {
+    public MovieDto(Long movieId, String title, String director, int releaseYear, Review review) {
         this.movieId = movieId;
         this.title = title;
         this.director = director;
         this.releaseYear = releaseYear;
         this.review = review;
-        this.category = category;
     }
 
     public MovieDto() {}
@@ -110,24 +101,17 @@ public class MovieDto {
         this.review = review;
     }
 
-    public MovieCategory getCategory() {
-        return category;
-    }
-
-    public void setCategory(MovieCategory category) {
-        this.category = category;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         MovieDto movieDto = (MovieDto) o;
-        return releaseYear == movieDto.releaseYear && Objects.equals(movieId, movieDto.movieId) && Objects.equals(title, movieDto.title) && Objects.equals(director, movieDto.director) && Objects.equals(review, movieDto.review) && category == movieDto.category;
+        return releaseYear == movieDto.releaseYear && Objects.equals(movieId, movieDto.movieId) && Objects.equals(title, movieDto.title) && Objects.equals(director, movieDto.director) && Objects.equals(review, movieDto.review);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(movieId, title, director, releaseYear, review, category);
+        return Objects.hash(movieId, title, director, releaseYear, review);
     }
 }

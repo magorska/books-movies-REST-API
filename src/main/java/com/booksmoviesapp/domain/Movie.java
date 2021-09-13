@@ -33,8 +33,4 @@ public class Movie {
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "REVIEW_ID")
     private Review review;
-
-    @JoinColumn(name = "CATEGORY")
-    private MovieCategory category;
-
 }

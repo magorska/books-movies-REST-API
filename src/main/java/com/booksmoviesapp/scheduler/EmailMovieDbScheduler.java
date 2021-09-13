@@ -16,6 +16,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -30,20 +31,23 @@ public class EmailMovieDbScheduler {
 
     private static final String SUBJECT = "We know what to watch this weekend!";
 
-    @Scheduled(cron = "0 10 * 10 *")
-    public void sendInformationEmail(String title) {
+    @Scheduled(cron = "0 0 10 * 10 *")
+    public void sendInformationEmail() {
         List<MovieDbSearchedDto> savedTopRated = movieDbClientService.topRated();
         List<MovieDbSearched> topRatedList = movieDbMapper.mapToMovieDbList(savedTopRated);
 
-        topRatedList.stream()
-                .filter(movieDbSearched -> movieDbSearched.getTitle().contains(title))
-                .collect(Collectors.toList());
+        List<String> topRated = new ArrayList<>();
+        topRated.add(topRatedList.get(0).getTitle());
+        topRated.add(topRatedList.get(1).getTitle());
+        topRated.add(topRatedList.get(2).getTitle());
+        topRated.add(topRatedList.get(3).getTitle());
+        topRated.add(topRatedList.get(4).getTitle());
 
         simpleEmailService.send(
                 new Mail(
                         adminConfig.getAdminMail(),
                         SUBJECT,
-                        "Here's a list of TOP rated movies at this time : " + topRatedList
+                        "Here's a list of TOP 5 rated movies at this time : " + topRated
                                 + "\n Now you also know what to watch this weekend! :)"
                 )
         );

@@ -17,8 +17,7 @@ public class BookMapper {
                 bookDto.getReleaseYear(),
                 bookDto.getIsbn(),
                 bookDto.getPages(),
-                bookDto.getReview(),
-                bookDto.getCategory());
+                bookDto.getReview());
     }
 
     public BookDto mapToBookDto(final Book book) {
@@ -28,8 +27,7 @@ public class BookMapper {
                 book.getReleaseYear(),
                 book.getIsbn(),
                 book.getPages(),
-                book.getReview(),
-                book.getCategory());
+                book.getReview());
     }
 
     public List<BookDto> mapToBookDtoList(final List<Book> bookList) {

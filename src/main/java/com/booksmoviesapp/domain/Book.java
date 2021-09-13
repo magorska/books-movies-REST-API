@@ -39,7 +39,4 @@ public class Book {
     @JoinColumn(name = "REVIEW_ID")
     private Review review;
 
-    @JoinColumn(name = "CATEGORY")
-    private BookCategory category;
-
 }

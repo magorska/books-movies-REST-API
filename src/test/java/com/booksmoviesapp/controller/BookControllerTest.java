@@ -1,7 +1,6 @@
 package com.booksmoviesapp.controller;
 
 import com.booksmoviesapp.domain.Book;
-import com.booksmoviesapp.domain.BookCategory;
 import com.booksmoviesapp.domain.Review;
 import com.booksmoviesapp.domain.dto.BookDto;
 import com.booksmoviesapp.mapper.BookMapper;
@@ -49,7 +48,7 @@ class BookControllerTest {
     @Test
     void shouldGetBooks() throws Exception {
         //Given
-        BookDto bookDto = new BookDto(1L, "title", "author", 2020, 1L, 20, new Review(), BookCategory.COMEDY);
+        BookDto bookDto = new BookDto(1L, "title", "author", 2020, 1L, 20, new Review());
         List<BookDto> bookDtoList = new ArrayList<>();
         bookDtoList.add(bookDto);
 
@@ -66,8 +65,8 @@ class BookControllerTest {
     @Test
     void shouldGetBook() throws Exception {
         //Given
-        BookDto bookDto = new BookDto(1L, "title", "author", 2020, 1L, 20, new Review(), BookCategory.COMEDY);
-        Book book = new Book(1L, "title", "author", 2020, 1L, 20, new Review(), BookCategory.COMEDY);
+        BookDto bookDto = new BookDto(1L, "title", "author", 2020, 1L, 20, new Review());
+        Book book = new Book(1L, "title", "author", 2020, 1L, 20, new Review());
 
         when(bookMapper.mapToBookDto(book)).thenReturn(bookDto);
         when(bookDbService.getBook(1L)).thenReturn(Optional.of(book));
@@ -83,7 +82,7 @@ class BookControllerTest {
     @Test
     public void shouldDeleteBook() throws Exception {
         //Given
-        Book book = new Book(1L, "title", "author", 2020, 1L, 20, new Review(), BookCategory.COMEDY);
+        Book book = new Book(1L, "title", "author", 2020, 1L, 20, new Review());
 
         when(bookDbService.getBook(1L)).thenReturn(Optional.of(book));
 
@@ -96,9 +95,8 @@ class BookControllerTest {
 
     @Test
     void shouldUpdateBook() throws Exception {
-        Book book = new Book(1L, "title", "author", 2020, 1L, 20, new Review(), BookCategory.COMEDY);
-        BookDto bookDto = new BookDto(1L, "title", "author", 2020, 1L, 20, new Review(), BookCategory.COMEDY);
-
+        Book book = new Book(1L, "title", "author", 2020, 1L, 20, new Review());
+        BookDto bookDto = new BookDto(1L, "title", "author", 2020, 1L, 20, new Review());
         when(bookMapper.mapToBook(bookDto)).thenReturn(book);
         when(bookMapper.mapToBookDto(book)).thenReturn(bookDto);
         when(bookDbService.saveBook(book)).thenReturn(book);
@@ -119,8 +117,8 @@ class BookControllerTest {
     @Test
     void shouldCreateBook() throws Exception {
         // Given
-        BookDto bookDto = new BookDto(1L, "title", "author", 2020, 1L, 20, new Review(), BookCategory.COMEDY);
-        Book book = new Book(1L, "title", "author", 2020, 1L, 20, new Review(), BookCategory.COMEDY);
+        BookDto bookDto = new BookDto(1L, "title", "author", 2020, 1L, 20, new Review());
+        Book book = new Book(1L, "title", "author", 2020, 1L, 20, new Review());
 
         when(bookMapper.mapToBook(bookDto)).thenReturn(book);
 

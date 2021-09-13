@@ -33,7 +33,7 @@ class MovieMapperTest {
     void testMapToMovieDto() {
         //Given
         MovieMapper movieMapper = new MovieMapper();
-        Movie movie = new Movie(1L, "title", "director", 2020, new Review(), MovieCategory.ACTION);
+        Movie movie = new Movie(1L, "title", "director", 2020, new Review());
         //When
         MovieDto mappedMovieDto = movieMapper.mapToMovieDto(movie);
         //Then
@@ -46,7 +46,7 @@ class MovieMapperTest {
     void testMapToMovieDtoList() {
         //Given
         MovieMapper movieMapper = new MovieMapper();
-        Movie movie = new Movie(1L, "title", "director", 2020, new Review(), MovieCategory.ACTION);
+        Movie movie = new Movie(1L, "title", "director", 2020, new Review());
         List<Movie> movieList = Arrays.asList(movie);
         //When
         List<MovieDto> mappedMovieList = movieMapper.mapToMovieDtoList(movieList);

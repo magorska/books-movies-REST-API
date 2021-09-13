@@ -1,7 +1,6 @@
 package com.booksmoviesapp.controller;
 
 import com.booksmoviesapp.domain.Movie;
-import com.booksmoviesapp.domain.MovieCategory;
 import com.booksmoviesapp.domain.Review;
 import com.booksmoviesapp.domain.dto.MovieDto;
 import com.booksmoviesapp.mapper.MovieMapper;
@@ -43,7 +42,7 @@ class MovieControllerTest {
     @Test
     void shouldGetMovies() throws Exception {
         //Given
-        MovieDto movieDto = new MovieDto(1L, "title", "author", 2020, new Review(), MovieCategory.ACTION );
+        MovieDto movieDto = new MovieDto(1L, "title", "author", 2020, new Review());
         List<MovieDto> movieDtoList = new ArrayList<>();
         movieDtoList.add(movieDto);
 
@@ -60,8 +59,8 @@ class MovieControllerTest {
     @Test
     void shouldGetMovie() throws Exception {
         //Given
-        MovieDto movieDto = new MovieDto(1L, "title", "author", 2020, new Review(), MovieCategory.ACTION );
-        Movie movie = new Movie(1L, "title", "author", 2020, new Review(), MovieCategory.ACTION );
+        MovieDto movieDto = new MovieDto(1L, "title", "author", 2020, new Review());
+        Movie movie = new Movie(1L, "title", "author", 2020, new Review());
 
         when(movieMapper.mapToMovieDto(movie)).thenReturn(movieDto);
         when(movieDbService.getMovie(1L)).thenReturn(Optional.of(movie));
@@ -77,7 +76,7 @@ class MovieControllerTest {
     @Test
     public void shouldDeleteMovie() throws Exception {
         //Given
-        Movie movie = new Movie(1L, "title", "author", 2020, new Review(), MovieCategory.ACTION );
+        Movie movie = new Movie(1L, "title", "author", 2020, new Review());
 
         when(movieDbService.getMovie(1L)).thenReturn(Optional.of(movie));
 
@@ -90,8 +89,8 @@ class MovieControllerTest {
 
     @Test
     void shouldUpdateMovie() throws Exception {
-        Movie movie = new Movie(1L, "title", "author", 2020, new Review(), MovieCategory.ACTION );
-        MovieDto movieDto = new MovieDto(1L, "title", "author", 2020, new Review(), MovieCategory.ACTION );
+        Movie movie = new Movie(1L, "title", "author", 2020, new Review());
+        MovieDto movieDto = new MovieDto(1L, "title", "author", 2020, new Review());
 
         when(movieMapper.mapToMovie(movieDto)).thenReturn(movie);
         when(movieMapper.mapToMovieDto(movie)).thenReturn(movieDto);
@@ -113,8 +112,8 @@ class MovieControllerTest {
     @Test
     void shouldCreateMovie() throws Exception {
         // Given
-        MovieDto movieDto = new MovieDto(1L, "title", "author", 2020, new Review(), MovieCategory.ACTION );
-        Movie movie = new Movie(1L, "title", "author", 2020, new Review(), MovieCategory.ACTION );
+        MovieDto movieDto = new MovieDto(1L, "title", "author", 2020, new Review());
+        Movie movie = new Movie(1L, "title", "author", 2020, new Review());
 
         when(movieMapper.mapToMovie(movieDto)).thenReturn(movie);
 

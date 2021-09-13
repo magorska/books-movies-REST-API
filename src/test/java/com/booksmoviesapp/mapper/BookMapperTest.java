@@ -1,7 +1,6 @@
 package com.booksmoviesapp.mapper;
 
 import com.booksmoviesapp.domain.Book;
-import com.booksmoviesapp.domain.BookCategory;
 import com.booksmoviesapp.domain.Review;
 import com.booksmoviesapp.domain.dto.BookDto;
 import org.junit.jupiter.api.Test;
@@ -41,7 +40,7 @@ class BookMapperTest {
         BookMapper bookMapper = new BookMapper();
         Review review = new Review();
         Book book = new Book(1L, "title", "author", 2020,
-                1L, 20, review, BookCategory.NOVEL);
+                1L, 20, review);
         //When
         BookDto mappedBookDto = bookMapper.mapToBookDto(book);
         //Then
@@ -57,7 +56,7 @@ class BookMapperTest {
         //Given
         BookMapper bookMapper = new BookMapper();
         Book book = new Book(1L, "title", "author", 2020,
-                1L, 20, new Review(), BookCategory.NOVEL);
+                1L, 20, new Review());
         List<Book> bookList = Arrays.asList(book);
         //When
         List<BookDto> mappedBookList = bookMapper.mapToBookDtoList(bookList);

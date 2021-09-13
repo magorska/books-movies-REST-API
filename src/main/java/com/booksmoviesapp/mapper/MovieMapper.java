@@ -16,8 +16,7 @@ public class MovieMapper {
                 movieDto.getTitle(),
                 movieDto.getDirector(),
                 movieDto.getReleaseYear(),
-                movieDto.getReview(),
-                movieDto.getCategory()
+                movieDto.getReview()
         );
     }
 
@@ -27,8 +26,7 @@ public class MovieMapper {
                 movie.getTitle(),
                 movie.getDirector(),
                 movie.getReleaseYear(),
-                movie.getReview(),
-                movie.getCategory()
+                movie.getReview()
         );
     }
 

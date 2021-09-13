@@ -1,7 +1,6 @@
 package com.booksmoviesapp.service;
 
 import com.booksmoviesapp.domain.Movie;
-import com.booksmoviesapp.domain.MovieCategory;
 import com.booksmoviesapp.domain.Review;
 import com.booksmoviesapp.repository.MovieRepository;
 import org.junit.jupiter.api.Test;
@@ -29,7 +28,7 @@ class MovieDbServiceTest {
     @Test
     void testGetAllMovies() {
         //Given
-        Movie movie = new Movie(1L, "title", "director", 2020, new Review(), MovieCategory.ACTION);
+        Movie movie = new Movie(1L, "title", "director", 2020, new Review());
         List<Movie> moviesList = Arrays.asList(movie);
         when(movieRepository.findAll()).thenReturn(moviesList);
 
@@ -47,7 +46,7 @@ class MovieDbServiceTest {
     @Test
     void testSaveMovie() {
         //Given
-        Movie movie = new Movie(1L, "title", "director", 2020, new Review(), MovieCategory.ACTION);
+        Movie movie = new Movie(1L, "title", "director", 2020, new Review());
         when(movieRepository.save(movie)).thenReturn(movie);
 
         //When
@@ -64,7 +63,7 @@ class MovieDbServiceTest {
     @Test
     void testGetMovie() {
         // Given
-        Movie movie = new Movie(1L, "title", "director", 2020, new Review(), MovieCategory.ACTION);
+        Movie movie = new Movie(1L, "title", "director", 2020, new Review());
         when(movieRepository.findById(1L)).thenReturn(Optional.of(movie));
 
         //When
@@ -77,7 +76,7 @@ class MovieDbServiceTest {
     @Test
     void testDeleteMovie() {
         //Given
-        Movie movie = new Movie(1L, "title", "director", 2020, new Review(), MovieCategory.ACTION);
+        Movie movie = new Movie(1L, "title", "director", 2020, new Review());
 
         //When
         movieDbService.deleteMovie(1L);
