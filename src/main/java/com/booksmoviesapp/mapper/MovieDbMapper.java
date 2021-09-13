@@ -1,5 +1,6 @@
 package com.booksmoviesapp.mapper;
 
+import com.booksmoviesapp.domain.MovieDbEntity;
 import com.booksmoviesapp.domain.MovieDbSearched;
 import com.booksmoviesapp.domain.dto.MovieDbSearchedDto;
 import org.springframework.stereotype.Service;
@@ -43,6 +44,15 @@ public class MovieDbMapper {
     public List<MovieDbSearched> mapToMovieDbList(final List<MovieDbSearchedDto> movieDbSearchedDto) {
         return movieDbSearchedDto.stream()
                 .map(movie -> new MovieDbSearched(
+                        movie.getId(), movie.getTitle(), movie.getOverview(), movie.getReleaseDate(),
+                        movie.getVoteAverage()
+                ))
+                .collect(Collectors.toList());
+    }
+
+    public List<MovieDbEntity> mapToMovieDbEntityList(final List<MovieDbSearchedDto> movieDbSearchedDto) {
+        return movieDbSearchedDto.stream()
+                .map(movie -> new MovieDbEntity(
                         movie.getId(), movie.getTitle(), movie.getOverview(), movie.getReleaseDate(),
                         movie.getVoteAverage()
                 ))
